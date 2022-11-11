@@ -1,22 +1,17 @@
-////////////////////////////////////////////
-//////////////////Meatboys//////////////////
-////////////////////////////////////////////
-//Please include p5, p5.play, p5.dom, p5.sound to run this game.
+////////////////////////////////////////////////////////////////////////
+////////////////////////////  Meat Boys  ///////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//Note: Please include p5, p5.play, p5.dom, p5.sound to run this game.//
 
-//Music Soundtrack
-//Carpainter - I'm telling you
+/////////////////////////// Music Soundtrack ///////////////////////////
+//Wave Racer - Streamers
 //Maxo - Crush~
 //Giraffage & Viceroy - Impression Of You (feat. Patrick Baker)
 //tofubeats - STAKEHOLDER
 //Deon Custom - Bliss
+////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-//**********// Navigation Note //**********//
+/////////////////////////// Navigation Notes ///////////////////////////
 //Main Title Screen **camera position x at windowWidth/2
 //Menu Selection Screen **camera position x at windowWidth+windowWidth/2
 //Chatting Menu Screen **camera position x at windowWidth*2+windowWidth/2
@@ -24,13 +19,7 @@
 //Fry it Screen **camera position x at windowWidth*4+windowWidth/2
 //Eat it Screen **camera position x at windowWidth*5+windowWidth/2
 //Strip it Screen **camera position x at windowWidth*6+windowWidth/2
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////
 
 //Global Variables
 
@@ -88,7 +77,6 @@ var loadingComingDown;
 var saltComingDown, fryComingDown, eatComingDown;
 var timerShake;
 
-
 //GAME ELEMENTS COUNTS & TIMES
 var completeStatus; //Completion Bar Grey Rect height value
 var clickCountStatus; //Record how many clicks to complete a task
@@ -120,7 +108,7 @@ function preload()
  saltLoadImg = loadImage("data/loadSalt.png");
  fryLoadImg = loadImage("data/loadFry.png");
  eatLoadImg = loadImage("data/loadEat.png");
- 
+
  convoBearImg01 = loadImage("data/convoBear01.png");
  convoBearImg02 = loadImage("data/convoBear02.png");
  convoBearImg03 = loadImage("data/convoBear03.png");
@@ -130,18 +118,18 @@ function preload()
  convoTwinkImg01 = loadImage("data/convoTwink01.png");
  convoTwinkImg02 = loadImage("data/convoTwink02.png");
  convoTwinkImg03 = loadImage("data/convoTwink03.png");
- 
+
  convoOffline = loadImage("data/convoOffline.png");
- 
+
  saltConvoImg01 = loadImage("data/saltConvo01.png");
  saltConvoImg02 = loadImage("data/saltConvo02.png");
  saltConvoImg03 = loadImage("data/saltConvo03.png");
  saltConvoImg04 = loadImage("data/saltConvo04.png");
- 
+
  fryConvoImg01 = loadImage("data/fryConvo01.png");
  fryConvoImg02 = loadImage("data/fryConvo02.png");
  fryConvoImg03 = loadImage("data/fryConvo03.png");
- 
+
  eatConvoImg01 = loadImage("data/eatConvo01.png");
  eatConvoImg02 = loadImage("data/eatConvo02.png");
  eatConvoImg03 = loadImage("data/eatConvo03.png");
@@ -149,12 +137,12 @@ function preload()
  eatConvoImg05 = loadImage("data/eatConvo05.png");
  eatConvoImg06 = loadImage("data/eatConvo06.png");
  eatConvoImg07 = loadImage("data/eatConvo07.png");
- 
+
  saltItScreenBg = loadImage("data/saltItScreen.png");
  fryItScreenBg = loadImage("data/fryItScreen.png");
  fryItScreenFire = loadImage("data/fryItScreenFire.png");
  eatItScreenBg = loadImage("data/eatItScreen.png");
- 
+
  titleBanner = loadImage("data/titleBanner.png");
  meatSaltImg = loadImage("data/meatSalt.png");
  meatEatAnimation = loadAnimation("data/meatEat01.png", "data/meatEat51.png");
@@ -163,7 +151,7 @@ function preload()
  sparkleSmall = loadImage("data/sparkleSmall.png");
  sparkleBig = loadImage("data/sparkleBig.png");
  convoArrowImg = loadImage("data/convoSelectArrow.png");
- 
+
  timerImg = loadImage("data/timerImg.png");
  timerShake = loadAnimation("data/timerShake01.png", "data/timerShake04.png");
  completeBarImg = loadImage("data/completeBarImg.png");
@@ -174,7 +162,7 @@ function preload()
  knifeImg = loadImage("data/knife.png");
  micImg = loadImage("data/micImg.png");
  mouseHoverAppImg = loadImage("data/mouseHoverApp.png");
- 
+
  score000Img = loadImage("data/score0.png");
  score033Img = loadImage("data/score33.png");
  score066Img = loadImage("data/score66.png");
@@ -183,7 +171,7 @@ function preload()
  buttonStart = loadImage("data/buttonStart.png");
  buttonNext = loadImage("data/buttonNext.png");
  buttonCook = loadImage("data/buttonCook.png");
- 
+
  buttonClickSound = loadSound("data/buttonClickSound.mp3");
  buttonBackSound = loadSound("data/buttonBackSound.mp3");
  bgm01 = loadSound("data/bgm01.mp3");
@@ -203,7 +191,7 @@ function preload()
  moan03 = loadSound("data/moan03.mp3");
  moan04 = loadSound("data/moan04.mp3");
  clearThroat = loadSound("data/clearThroat.mp3");
- 
+
 } //End of Preload
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -230,33 +218,33 @@ function setup()
   buttonSizeH = windowWidth/15.24;  //Setting default button size
   scaledHeight = windowWidth/1.77777; //Scaling windowHeight to 16:9
   scaledP5playElement = windowWidth/1920;
-  
-  
+
+
   ////////////////SETUP ANIMATION////////////////
   //bannerComingDown = 0-windowWidth/5; //Setting title banner animation
   bannerComingDown = windowWidth/5.7;
   //meatComingDown = 0-windowWidth/5;  //Setting title banner animation
   meatComingDown = windowWidth/6;
   loadingComingDown = 0-scaledHeight;  //Setting loading screen animation
-  
+
   saltComingDown = 0;
   fryComingDown = 0;
   eatComingDown = 0;
-  
+
   meatRotation = 0;  //Setting title banner animation
   sparkleFade1 = 255;
   sparkleFade2 = 125;
   sparkleFade3 = 50;
   sparkleFade4 = 175;
-  
+
   ///////////////////SETUP Clock and Completion Status///////////////////
   completeStatus = windowWidth/3;
   clickCountStatus = 0;
   clockCountdown = 0;
 
-  
-  
-  
+
+
+
   ////////////////SETUP BOOLEAN//////////////////
   inTitleScreen = true; //Goes to Main Title Screen **camera position x at 0
   inChatRoom = false; //Goes to Chatting Screen **camera position x at windowWidth*2+windowWidth/2
@@ -269,20 +257,20 @@ function setup()
   twinkConvoNo = false;
   jockConvoYes = false;
   jockConvoNo = false;
-  
+
   saltItScreen = false; //Goes to Salt It Screen **camera position x at windowWidth*3+windowWidth/2
   fryItScreen = false; //Goes to Fry It Screen **camera position x at windowWidth*4+windowWidth/2
   eatItScreen = false; //Goes to Eat It Screen **camera position x at windowWidth*5+windowWidth/2
   stripItScreen = false; //Goes to Strip It Screen
-  
+
   saltItFailed = false; //Shows up Score Board if failed
   fryItFailed = false; //Shows up Score Board if failed
   eatItFailed = false; //Shows up Score Board if failed
   nothingFailed = false; //Shows up Score Board if everything success!
-  
+
   timeIsUp = false;
   fireIsOn = false;
-  
+
   ////////////////SETUP BACKGROUND MUSIC//////////////////
   bgm01.loop();
 
@@ -293,8 +281,8 @@ function setup()
   ///Setup Video//////
   stripVideo = createVideo(['data/stripped.mp4']);
   stripVideo.hide();
-  
-  
+
+
 } //End of Setup
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -320,9 +308,9 @@ function draw()
   ////////////////////////Title Screen/////////////////////////////
   /////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
-  
+
   background(255);
-  if (inTitleScreen == true){ 
+  if (inTitleScreen == true){
   push();
   imageMode(CENTER);
   translate(windowWidth/2,windowWidth/4.47);
@@ -331,7 +319,7 @@ function draw()
   pop();
   imageMode(CORNER);
   image(titleBgImg,0,0,windowWidth,scaledHeight); // Title Bg
-  
+
   imageMode(CENTER);
   image(buttonStart,windowWidth/2,scaledHeight/1.2,buttonSizeW,buttonSizeH);
   image(titleBanner,windowWidth/2,bannerComingDown,windowWidth/1.15,windowWidth/7.68);
@@ -340,8 +328,8 @@ function draw()
   rotate(radians(meatRotation));
   image(meatSaltImg,0,0,windowWidth/4,windowWidth/4.7);
   pop();
-  
-  
+
+
   /////////////////////Banner Coming Down Animation/////////////////////
   // if (bannerComingDown < windowWidth/5.7)
   // {
@@ -352,25 +340,25 @@ function draw()
   //   meatComingDown = meatComingDown +2.5;
   //   meatRotation = meatRotation+6.7;
   // }
-  
+
   /////////////////////Sparkle Fade In & Out/////////////////////
   sparkleFading();
-  
+
   }//inTitleScreen
-  
-  
+
+
   /////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
   ////////////////////////Menu Selection Screen////////////////////
   /////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
-  
-  
+
+
   imageMode(CORNER);
   image(menuBgImg,windowWidth,0,windowWidth,scaledHeight); // Menu Bg
-  
+
   /////////////////////////////////////////////////////////////////Menu Mouse Hover Effect on buttons
-  
+
   if ((camera.position.x >= windowWidth+windowWidth/2) && (camera.position.x < windowWidth*2+windowWidth/2) &&
   mouseX > windowWidth/1.25 && mouseX < windowWidth/1.026 &&
   mouseY > windowWidth/2.278 && mouseY < windowWidth/1.86)
@@ -380,7 +368,7 @@ function draw()
     rectMode(CENTER);
     rect(windowWidth+windowWidth/1.126,windowWidth/2.046,windowWidth/5.82,windowWidth/10.02);
   }
-  
+
   if ((camera.position.x >= windowWidth+windowWidth/2) && (camera.position.x < windowWidth*2+windowWidth/2) &&
   mouseX > windowWidth/10.55 && mouseX < windowWidth/3.76 &&
   mouseY > windowWidth/3.63 && mouseY < windowWidth/2.43)
@@ -388,22 +376,22 @@ function draw()
     imageMode(CENTER);
     image(mouseHoverAppImg,windowWidth+windowWidth/5.505,windowWidth/3.213,windowWidth/10.546,windowWidth/10.546);
   }
-  
-  
-  
+
+
+
   /////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
   ////////////////////////In Chat Room Menu////////////////////////
   /////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////
-  
-  
-  
+
+
+
   if (inChatRoom == true)
   {
-   
+
   image(chatBgImg,windowWidth*2,0,windowWidth,scaledHeight); //Chat Bg
-    
+
   ////////////Mouse Hover Effect to Select Different Meat///////////////////////////
   if ((bearConvo == false) && (twinkConvo == false) && (jockConvo == false) &&
   mouseX > windowWidth/12.826 && mouseX < windowWidth/4.80 &&
@@ -498,15 +486,15 @@ function draw()
     imageMode(CENTER);
     image(convoOffline,windowWidth*2+windowWidth/1.32,windowWidth/7.82,windowWidth/2.8,windowWidth/8.8);
   }
-  
-  
-  
-  
-  
-  
-  
-  
-    
+
+
+
+
+
+
+
+
+
     if (bearConvo == true)
     {
       image(convoBearImg01,windowWidth*2,0,windowWidth,scaledHeight);
@@ -517,7 +505,7 @@ function draw()
       {
         image(convoArrowImg, windowWidth*2+windowWidth/1.8, windowWidth/4.02, windowWidth/54.86, windowWidth/72);
       }//End of convo arrow selection
-      
+
       if (bearConvoYes == true)
       {
         image(convoBearImg02,windowWidth*2,0,windowWidth,scaledHeight);
@@ -537,7 +525,7 @@ function draw()
       {
         image(convoArrowImg, windowWidth*2+windowWidth/1.8, windowWidth/4.02, windowWidth/54.86, windowWidth/72);
       }//End of convo arrow selection
-      
+
       if (twinkConvoYes == true)
       {
         image(convoTwinkImg02,windowWidth*2,0,windowWidth,scaledHeight);
@@ -557,7 +545,7 @@ function draw()
       {
         image(convoArrowImg, windowWidth*2+windowWidth/1.8, windowWidth/4.02, windowWidth/54.86, windowWidth/72);
       }//End of convo arrow selection
-      
+
       if (jockConvoYes == true)
       {
         image(convoJockImg02,windowWidth*2,0,windowWidth,scaledHeight);
@@ -568,44 +556,44 @@ function draw()
       }
     }//End of jockConvo
   }//End of inChatRoom
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////SALT IT////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
-  
+
   if (saltItScreen == true)
   {
   imageMode(CORNER);
   image(saltItScreenBg,windowWidth*3,0,windowWidth,scaledHeight); //Salt It Bg
   setTimeout(saltItStart, 3000);
   clearTimeout(saltItStart);
-  
-  
+
+
   /////////Mouse Attached to a Salt Bottle///////////////
     if ((clickCountStatus < 50) && (timeIsUp == false) && (saltItFailed == false))
       {
@@ -614,12 +602,12 @@ function draw()
       image(saltBottleImg,mouseX,mouseY,windowWidth/4.59,windowWidth/4.90);
       camera.on();
       }
-  
-  
+
+
   //////Clock And Complete Bar on the left side///////
   clockAndCompleteBar();
-  
-  
+
+
   /////Meat Conversation/////
   if (clickCountStatus < 5)
   {
@@ -638,7 +626,7 @@ function draw()
     imageMode(CORNER);
     image(saltConvoImg04,windowWidth*3+windowWidth/4.6,windowWidth/14.77,windowWidth/3.37,windowWidth/21.1);
   }
-  
+
   /////Click to have sparkles effect/////
   if ((mouseIsPressed) && (timeIsUp == false) && (clickCountStatus < 50))
   {
@@ -651,19 +639,19 @@ function draw()
   image(sparkleBig,mouseX-windowWidth/4,mouseY-windowWidth/4,windowWidth/3.66,windowWidth/5.09);
   camera.on();
   }
-  
+
   //////Finish! Success!//////
   if (clickCountStatus == 50)
   {
     successThreeStar();
   }
-  
+
   /////If Time Is Up/////
   if (timeIsUp == true)
   {
     timeIsUpFunc();
   }
-  
+
   ////When Time is up and Player clicked NEXT button for score////
   if (saltItFailed == true)
   {
@@ -671,32 +659,32 @@ function draw()
     image(score000Img,windowWidth*3,0,windowWidth,scaledHeight); //Show the score board
     sparkleFading();
   }
-  
+
   /////Salt Loading Image/////
   imageMode(CORNER);
   image(saltLoadImg,windowWidth*3,saltComingDown,windowWidth,scaledHeight); //Salt It Loading Screen
-  
+
   }//End of Salt it If True Statement
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////////
@@ -711,7 +699,7 @@ function draw()
   image(fryItScreenBg,windowWidth*4,0,windowWidth,scaledHeight); //Fry It Bg
   setTimeout(fryItStart, 3000);
   clearTimeout(fryItStart);
-  
+
   if (fireIsOn == true)
   {
     imageMode(CORNER);
@@ -722,11 +710,11 @@ function draw()
   //////Drawing Meat//////
   imageMode(CENTER);
   image(meatSaltImg,windowWidth*4+windowWidth/1.47,windowWidth/3.9,windowWidth/2.89,windowWidth/3.46);
-  
-  
-  
-  
-  
+
+
+
+
+
   //////Draw Fire Switch & First Convo//////** If fireIsOn is true the micphone will be turn on
   if (fireIsOn == false)
   {
@@ -735,21 +723,21 @@ function draw()
     imageMode(CORNER);
     image(fryConvoImg01,windowWidth*4+windowWidth/4.6,windowWidth/14.77,windowWidth/2.87,windowWidth/12.88);
   }
-  
+
   /////Draw 2nd convo/////////
   if ((fireIsOn == true) && (completeStatus <= windowWidth/3) && (completeStatus > windowWidth/5))
   {
     imageMode(CORNER);
     image(fryConvoImg02,windowWidth*4+windowWidth/4.6,windowWidth/14.77,windowWidth/2.66,windowWidth/12.88);
   }
-  
+
   ////Draw 3rd convo//////
   if ((fireIsOn == true) && (completeStatus < windowWidth/5))
   {
     imageMode(CORNER);
     image(fryConvoImg03,windowWidth*4+windowWidth/4.6,windowWidth/14.77,windowWidth/3.06,windowWidth/12.88);
   }
-    
+
   /////Draw Mic Level Bar//////
   if (fireIsOn == true)
   {
@@ -769,10 +757,10 @@ function draw()
     imageMode(CENTER);
     image(micImg,windowWidth*4+windowWidth/4,scaledHeight/1.15,windowWidth/26.66,windowWidth/16.27);
   }
-  
+
   /////////////Game Elements///////////
   clockAndCompleteBar();
-  
+
   if ((timeIsUp == false) && (completeStatus > 1))
   {
     micLevel = mic.getLevel();
@@ -781,19 +769,19 @@ function draw()
       print("Oh Wow, Your Blow Job level is " + round(micLevel*100) + ". Can you do better?");
     }
   }
-  
+
   //////Finish! Success!//////
   if (completeStatus < 1 )
   {
     successThreeStar();
   }
-  
+
   /////If Time Is Up/////
   if (timeIsUp == true)
   {
     timeIsUpFunc();
   }
-  
+
   ////When Time is up and Player clicked NEXT button for score////
   if (fryItFailed == true)
   {
@@ -801,11 +789,11 @@ function draw()
     image(score033Img,windowWidth*4,0,windowWidth,scaledHeight); //Show the score board
     sparkleFading();
   }
-  
+
   /////Fry Loading Image/////
   imageMode(CORNER);
   image(fryLoadImg,windowWidth*4,fryComingDown,windowWidth,scaledHeight); //Fry It Loading Screen
-  
+
   } //End of Fry It Screen True
 
 
@@ -818,26 +806,26 @@ function draw()
 
 
 
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////EAT IT////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
-  
+
   if (eatItScreen == true)
   {
   imageMode(CORNER);
   image(eatItScreenBg,windowWidth*5,0,windowWidth,scaledHeight); //Eat It Bg
   setTimeout(eatItStart, 3000);
   clearTimeout(eatItStart);
-  
+
   /////Draw Meat Animation/////
   imageMode(CENTER);
   push();
@@ -845,10 +833,10 @@ function draw()
   scale(scaledP5playElement,scaledP5playElement);
   animation(meatEatAnimation,0,0);
   pop();
-  
-  
-  
-  
+
+
+
+
   /////////Mouse Attached to Fork & Knife///////////////
   if ((clickCountStatus < 50) && (timeIsUp == false) && (eatItFailed == false))
   {
@@ -865,7 +853,7 @@ function draw()
     }
     camera.on();
   }
-  
+
   //////Clock And Complete Bar on the left side///////
   clockAndCompleteBar();
 
@@ -908,14 +896,14 @@ function draw()
     image(eatConvoImg07,windowWidth*5+windowWidth/4.6,windowWidth/14.77,windowWidth/5,windowWidth/20.87);
     sparkleFading();
   }
-  
-  
+
+
   //////Finish! Success!//////
   if (clickCountStatus == 50)
   {
     successThreeStar();
   }
-  
+
   /////If Time Is Up/////
   if (timeIsUp == true)
   {
@@ -929,8 +917,8 @@ function draw()
     image(score066Img,windowWidth*5,0,windowWidth,scaledHeight); //Show the score board
     sparkleFading();
   }
-  
-  
+
+
   /////When successfully cleared all stages and system gives you final score/////
   if (nothingFailed == true)
   {
@@ -938,38 +926,38 @@ function draw()
     image(score100Img,windowWidth*5,0,windowWidth,scaledHeight); //Show the score board
     sparkleFading();
   }
-  
-  
+
+
   /////Eat Loading Image/////
   imageMode(CORNER);
   image(eatLoadImg,windowWidth*5,eatComingDown,windowWidth,scaledHeight); //Eat It Loading Screen
-  
+
   } //End of eatItScreen is true!
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////STRIP IT///////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////
-  
+
   if (stripItScreen == true)
   {
     push();
@@ -978,7 +966,7 @@ function draw()
     imageMode(CORNER);
     image(stripVideo,0,0);
     pop();
-    
+
     if (stripVideo.time() > 17  )
     {
     camera.off();
@@ -986,16 +974,16 @@ function draw()
     image(buttonCook,windowWidth/1.1,windowWidth/2,buttonSizeW,buttonSizeH);
     camera.on();
     }
-    
+
     if (stripVideo.time() > 19  )
     {
       stripVideo.pause();
     }
 
   }
-  
-  
-  
+
+
+
   /////////////////////Mouse Press Sparkle Effect/////////////////////
   if (mouseIsPressed)
   {
@@ -1004,19 +992,19 @@ function draw()
     image(sparkleSmall,mouseX,mouseY,windowWidth/9.95,windowWidth/8.38);
     camera.on();
   }
-  
-  
-  
+
+
+
   /////////////////////Pretty Scene Transition Effect/////////////////////
   camera.off();
   imageMode(CORNER);
   image(loadingImg,0,loadingComingDown,windowWidth,scaledHeight); //Transition Screen
   if(loadingComingDown > (0-scaledHeight)) {loadingComingDown -= 40;}
   camera.on();
-  
-  
-  
-  
+
+
+
+
 } //End of Draw Loop
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -1037,7 +1025,7 @@ function draw()
 
 function mouseReleased()
 {
-  
+
   ////////////////////////If Press Start Screen////////////////////////
   if ((camera.position.x <= windowWidth/2) &&
   mouseX > windowWidth/2.45 && mouseX < windowWidth/1.69 &&
@@ -1049,7 +1037,7 @@ function mouseReleased()
     transitionEffect = true;
     loadingComingDown = 0;
   }
-  
+
   ////////////////////////If Press Back To Title Screen////////////////////////
   if ((camera.position.x >= windowWidth+windowWidth/2) && (camera.position.x < windowWidth*2+windowWidth/2) &&
   mouseX > windowWidth/1.25 && mouseX < windowWidth/1.026 &&
@@ -1060,7 +1048,7 @@ function mouseReleased()
     inTitleScreen = true;
     loadingComingDown = 0;
   }
-  
+
   ////////////////////////If Press Meat & Greet////////////////////////
   if ((camera.position.x >= windowWidth+windowWidth/2) && (camera.position.x < windowWidth*2+windowWidth/2) &&
   mouseX > windowWidth/10.55 && mouseX < windowWidth/3.76 &&
@@ -1073,7 +1061,7 @@ function mouseReleased()
     inChatRoom = true;
     loadingComingDown = 0;
   }
-  
+
   ////////////////////////////If Press Back to Menu From Chat Main Screen////////////////////////////
   if ((inChatRoom == true) && (bearConvo == false) && (twinkConvo == false) && (jockConvo == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1086,7 +1074,7 @@ function mouseReleased()
     inChatRoom = false;
     loadingComingDown = 0;
   }
-  
+
   ////////////////////If chatting with Bear and want to go back to main chatting screen////////////////////
   if ((inChatRoom == true) && (bearConvo == true) &&
   mouseX > windowWidth/12.826 && mouseX < windowWidth/6.53 &&
@@ -1106,7 +1094,7 @@ function mouseReleased()
     twinkConvoYes = false;
     twinkConvoNo = false;
     buttonBackSound.play();
-  } 
+  }
   ////////////////////If chatting with Jock and want to go back to main chatting screen////////////////////
   if ((inChatRoom == true) && (jockConvo == true) &&
   mouseX > windowWidth/12.826 && mouseX < windowWidth/6.53 &&
@@ -1116,8 +1104,8 @@ function mouseReleased()
     jockConvoYes = false;
     jockConvoNo = false;
     buttonBackSound.play();
-  } 
-  
+  }
+
   ////////////////////////////////////////////////////////////////////////
   ///////////////////////////////Bear Chat///////////////////////////////
   ////////////////////////////////////////////////////////////////////////
@@ -1128,7 +1116,7 @@ function mouseReleased()
     bearConvo = true;
     textReceive.play();
   }
-  
+
   if((inChatRoom == true) && (bearConvo == true) && (bearConvoYes == false) && (bearConvoNo == false) &&
   mouseX > windowWidth/2 &&
   mouseY > 0 && mouseY < windowWidth/5)
@@ -1143,7 +1131,7 @@ function mouseReleased()
     bearConvoNo = true;
     textSentSingle.play();
   }
-  
+
   ///////////////////////////Hit COOK from bearConvoYes///////////////////////////
   if((inChatRoom == true) && (bearConvo == true) && (bearConvoYes == true) && (bearConvoNo == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1160,7 +1148,7 @@ function mouseReleased()
     bearConvoYes = false;
     loadingComingDown = 0;
   }
-  
+
   ///////////////////////////Hit BACK from bearConvoNo///////////////////////////
   if((inChatRoom == true) && (bearConvo == true) && (bearConvoYes == false) && (bearConvoNo == true) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1171,7 +1159,7 @@ function mouseReleased()
     buttonBackSound.play();
     loadingComingDown = 0;
   }
-  
+
   ////////////////////////////////////////////////////////////////////////
   ///////////////////////////////Twink Chat///////////////////////////////
   ////////////////////////////////////////////////////////////////////////
@@ -1196,8 +1184,8 @@ function mouseReleased()
     twinkConvoNo = true;
     textSentMulti.play();
   }
-  
-  
+
+
   ///////////////////////////Hit COOK from twinkConvoYes///////////////////////////
   if((inChatRoom == true) && (twinkConvo == true) && (twinkConvoYes == true) && (twinkConvoNo == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1214,7 +1202,7 @@ function mouseReleased()
     twinkConvoYes = false;
     loadingComingDown = 0;
   }
-  
+
   ///////////////////////////Hit BACK from twinkConvoNo///////////////////////////
   if((inChatRoom == true) && (twinkConvo == true) && (twinkConvoYes == false) && (twinkConvoNo == true) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1225,7 +1213,7 @@ function mouseReleased()
     buttonBackSound.play();
     loadingComingDown = 0;
   }
-  
+
   ////////////////////////////////////////////////////////////////////////
   ///////////////////////////////Jock Chat///////////////////////////////
   ////////////////////////////////////////////////////////////////////////
@@ -1267,7 +1255,7 @@ function mouseReleased()
     jockConvoYes = false;
     loadingComingDown = 0;
   }
-  
+
   ///////////////////////////Hit BACK from jockConvoNo///////////////////////////
   if((inChatRoom == true) && (jockConvo == true) && (jockConvoYes == false) && (jockConvoNo == true) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1283,12 +1271,12 @@ function mouseReleased()
 
 
 
-  
-  
+
+
   ////////////////////////////////////////////////////////////////////////
   ///////////////////////////////Salt It//////////////////////////////////
   ////////////////////////////////////////////////////////////////////////
-  
+
   if((saltItScreen == true) && (timeIsUp == false))
   {
     if(completeStatus > 1)
@@ -1298,7 +1286,7 @@ function mouseReleased()
     clickCountStatus++;
     print("Shake It Baby! Shake it "+clickCountStatus+" times to turn me on...");
     }
-    
+
   if (clickCountStatus == 2)
   {moan01.play();}
   if (clickCountStatus == 6)
@@ -1309,11 +1297,11 @@ function mouseReleased()
   {moan01.play();}
   if (clickCountStatus == 50)
   {dingSound.play();}
-  
+
   }//End of if salt it screen is true
-  
+
   //////////////////////////////If Success in Salt It Stage and press NEXT button
-  
+
   if((saltItScreen == true) && (clickCountStatus == 50) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
   mouseY > windowWidth/2.133 && mouseY < windowWidth/1.86)
@@ -1328,9 +1316,9 @@ function mouseReleased()
     resetGameElementsWhenSuccess();
     loadingComingDown = 0;
   }
-  
+
   //////////////////////////////If Time's Up in Salt it Stage and press NEXT button to show Score
-  
+
   if((saltItScreen == true) && (timeIsUp == true) && (saltItFailed == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
   mouseY > windowWidth/2.133 && mouseY < windowWidth/1.86)
@@ -1342,9 +1330,9 @@ function mouseReleased()
     saltItFailed = true; //Show the Score Board
     loadingComingDown = 0;
   }
-  
+
   ////////////If Shown Score in Salt It and press button to return to main title screen
-  
+
   if ((saltItFailed == true) &&
   mouseX > 0 && mouseX < windowWidth/1.2 &&
   mouseY > windowWidth/2.14 && mouseY < scaledHeight)
@@ -1356,27 +1344,27 @@ function mouseReleased()
     // loadingComingDown = 0;
     reinitializeOriginalValues ();
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////////////////////////////////
   ////////////////////////////////Fry It//////////////////////////////////
   ////////////////////////////////////////////////////////////////////////
-  
+
   if((fryItScreen == true) && (timeIsUp == false))
-  { 
+  {
     //Turn on The Microphone
     mic = new p5.AudioIn()
     mic.start();
-    
+
     //Turn on the fire
     if ((fireIsOn == false) && mouseX > windowWidth/5 && mouseX < windowWidth/2.73 &&
     mouseY > windowWidth/2.78 && mouseY < windowWidth/1.90)
@@ -1384,14 +1372,14 @@ function mouseReleased()
       fireIsOn = true;
       moan02.play();
     }
-    
+
     ///Male Moan when mouseReleased onFire
     if (fireIsOn == true)
     { moan02.play(); }
-    
-  } //End of if fry it screen is true && time is not up 
-  
-  
+
+  } //End of if fry it screen is true && time is not up
+
+
   //////////If Success
   if ((fryItScreen == true) && (completeStatus < 1 ) && (fryItFailed == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1407,7 +1395,7 @@ function mouseReleased()
     loadingComingDown = 0;
   }
 
-  
+
   /////////If Time is up
   if((fryItScreen == true) && (timeIsUp == true) &&
   //(fryItFailed == false) &&
@@ -1420,10 +1408,10 @@ function mouseReleased()
     fryItFailed = true; //Show the Score Board
     loadingComingDown = 0;
   }
-  
-  
+
+
   ////////////If Shown Score in Fry It and press button to return to main title screen
-  
+
   if ((fryItFailed == true) &&
   mouseX > 0 && mouseX < windowWidth/1.2 &&
   mouseY > windowWidth/2.14 && mouseY < scaledHeight)
@@ -1435,24 +1423,24 @@ function mouseReleased()
     // loadingComingDown = 0;
     reinitializeOriginalValues();
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////////////////////////////////
   ////////////////////////////////Eat It//////////////////////////////////
   ////////////////////////////////////////////////////////////////////////
-  
+
   if((eatItScreen == true) && (timeIsUp == false))
   {
     if(completeStatus > 1)
@@ -1462,9 +1450,9 @@ function mouseReleased()
     clickCountStatus++;
     print("Lick me, taste me, eat me up "+clickCountStatus+" times to devour me...");
     }
-    
+
   //Male Moaning Sound
-  
+
   if (clickCountStatus == 2)
   {moan02.play();}
   if (clickCountStatus == 7)
@@ -1481,18 +1469,18 @@ function mouseReleased()
   {moan04.play();}
   if (clickCountStatus == 50)
   {dingSound.play();}
-  
-  
+
+
   }//End of if EAT it screen is true and Time is not up
-  
-  
+
+
   ////////Mouseclick Eating Meat Animation
   if ((eatItScreen == true) && (timeIsUp == false) && (meatEatAnimation.getFrame() < 50) )
   {
   meatEatAnimation.nextFrame();
   }
-  
-  
+
+
   //////////If Success
   if ((eatItScreen == true) && (completeStatus < 1 ) && (eatItFailed == false) && (nothingFailed == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1506,7 +1494,7 @@ function mouseReleased()
     loadingComingDown = 0;
   }
 
-  
+
   /////////If Time is up
   if((eatItScreen == true) && (timeIsUp == true) && (eatItFailed == false) && (nothingFailed == false) &&
   mouseX > windowWidth/1.2 && mouseX < windowWidth/1.024 &&
@@ -1519,10 +1507,10 @@ function mouseReleased()
     eatItFailed = true; //Show 66 Score Board
     loadingComingDown = 0;
   }
-  
-  
+
+
   ////////////If Shown Score in NOTHING Failed and press button to return to main title screen
-  
+
   if ((nothingFailed == true) &&
   mouseX > 0 && mouseX < windowWidth/1.2 &&
   mouseY > windowWidth/2.14 && mouseY < scaledHeight)
@@ -1534,11 +1522,11 @@ function mouseReleased()
     // loadingComingDown = 0;
     reinitializeOriginalValues();
   }
-  
-  
-  
+
+
+
   ////////////If Shown Score in Fry It Failed and press button to return to main title screen
-  
+
   if ((eatItFailed == true) &&
   mouseX > 0 && mouseX < windowWidth/1.2 &&
   mouseY > windowWidth/2.14 && mouseY < scaledHeight)
@@ -1550,27 +1538,27 @@ function mouseReleased()
     // loadingComingDown = 0;
     reinitializeOriginalValues();
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////////////////////////////////
   ////////////////////////////////Strip It////////////////////////////////
   ////////////////////////////////////////////////////////////////////////
-  
-  
+
+
   if ((stripItScreen == true) && (stripVideo.time() > 17)) //Click to go to Salt It Screen
   {
     stripVideo.stop();
@@ -1582,9 +1570,9 @@ function mouseReleased()
     stripItScreen = false;
     loadingComingDown = 0;
   }
-  
-  
-  
+
+
+
 // prevent default
 return false;
 
@@ -1707,7 +1695,7 @@ function clockAndCompleteBar ()
   imageMode(CENTER);
   image(timerImg,windowWidth/10,windowWidth/10,windowWidth/7,windowWidth/7);
   image(completeBarImg,windowWidth/10,windowWidth/2.7,windowWidth/10,windowWidth/3);
-  
+
   //////Complete Bar//////
   fill(200);
   noStroke();
@@ -1718,7 +1706,7 @@ function clockAndCompleteBar ()
   strokeWeight(windowWidth/96);
   rectMode(CENTER);
   rect(windowWidth/10,windowWidth/2.7,windowWidth/10,windowWidth/3);
-  
+
   //////Clock Handle///////
   noFill();
   stroke(255);
@@ -1737,7 +1725,7 @@ function clockAndCompleteBar ()
   rotate(radians(clockCountdown));
   line(0,0,0,-(windowWidth/21.5));
   pop();
-  
+
   if ((clockCountdown < 360) && (completeStatus > 1))
   {clockCountdown = clockCountdown+0.2;}
   else if (clockCountdown > 360)
@@ -1777,24 +1765,24 @@ function reinitializeOriginalValues () //This function includes function resetGa
   // bannerComingDown = 0-windowWidth/5; //Setting title banner animation
   // meatComingDown = 0-windowWidth/5;  //Setting title banner animation
   // loadingComingDown = 0-scaledHeight;  //Setting loading screen animation
-  
+
   // meatEatAnimation.changeFrame(0); //Reset Meat Eat Animation
-  
+
   // saltComingDown = 0;
   // fryComingDown = 0;
   // eatComingDown = 0;
-  
+
   // meatRotation = 0;  //Setting title banner animation
   // sparkleFade1 = 255;
   // sparkleFade2 = 125;
   // sparkleFade3 = 50;
   // sparkleFade4 = 175;
-  
+
   // ///////////////////SETUP Clock and Completion Status///////////////////
   // completeStatus = windowWidth/3;
   // clickCountStatus = 0;
   // clockCountdown = 0;
-  
+
   // ////////////////SETUP BOOLEAN//////////////////
   // inTitleScreen = true; //Goes to Main Title Screen **camera position x at 0
   // inChatRoom = false; //Goes to Chatting Screen **camera position x at windowWidth*2+windowWidth/2
@@ -1807,20 +1795,20 @@ function reinitializeOriginalValues () //This function includes function resetGa
   // twinkConvoNo = false;
   // jockConvoYes = false;
   // jockConvoNo = false;
-  
+
   // saltItScreen = false; //Goes to Salt It Screen **camera position x at windowWidth*3+windowWidth/2
   // fryItScreen = false; //Goes to Fry It Screen **camera position x at windowWidth*4+windowWidth/2
   // eatItScreen = false; //Goes to Eat It Screen **camera position x at windowWidth*5+windowWidth/2
   // stripItScreen = false;
-  
+
   // saltItFailed = false; //Shows up Score Board if failed
   // fryItFailed = false; //Shows up Score Board if failed
   // eatItFailed = false; //Shows up Score Board if failed
   // nothingFailed = false; //Shows up Score Board if everything success!
-  
+
   // timeIsUp = false;
   // fireIsOn = false;
-  
-  
+
+
   // stripVideo.stop();
 }
