@@ -272,6 +272,9 @@ function setup()
   fireIsOn = false;
 
   ////////////////SETUP BACKGROUND MUSIC//////////////////
+  // Mimics the Autoplay Policy
+  getAudioContext().suspend();
+  // Play Audio
   bgm01.loop();
 
 
